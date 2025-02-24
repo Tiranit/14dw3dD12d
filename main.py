@@ -65,17 +65,17 @@ for symbol in symbols:
 
     # ✅ گروه اول: رشد 14 روزه ≥ 10٪ + ریزش 3 روزه ≤ -5٪
     if change_14d is not None and change_3d is not None:
-        if change_14d >= 10 and change_3d <= -5:
+        if change_14d >= 5 and change_3d <= -5:
             results["گروه اول"].append(symbol)
 
     # ✅ گروه دوم: رشد 7 روزه ≥ 6٪ + ریزش 3 روزه ≤ -3٪
     if change_7d is not None and change_3d is not None:
-        if change_7d >= 6 and change_3d <= -3:
+        if change_7d >= 4 and change_3d <= -3:
             results["گروه دوم"].append(symbol)
 
     # ✅ گروه سوم: رشد 1 روزه ≥ 8٪ + ریزش 12 ساعت گذشته ≤ -4٪
     if change_1d is not None and change_12h is not None:
-        if change_1d >= 8 and change_12h <= -4:
+        if change_1d >= 3 and change_12h <= -3:
             results["گروه سوم"].append(symbol)
 
 # 🔹 فرمت نهایی نتایج برای چاپ
