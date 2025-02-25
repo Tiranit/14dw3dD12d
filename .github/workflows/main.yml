@@ -1,0 +1,33 @@
+name: Run Crypto Analysis
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"  # اجرای هر ۲ ساعت یکبار
+  push:
+    branches:
+      - main  # اجرا هنگام تغییرات در شاخه اصلی
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    env:
+      EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install Dependencies
+        run: |
+          pip install ccxt numpy pandas mplfinance
+
+      - name: Run Script
+        run: python main.py
