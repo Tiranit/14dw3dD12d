@@ -64,13 +64,13 @@ for symbol in symbols:
     change_1d = get_price_change(symbol, "1d", 1)
     change_12h = get_12h_change(symbol)
 
-    if change_14d is not None and change_3d is not None and change_14d >= 7 and change_3d <= -3:
+    if change_14d is not None and change_12h is not None and change_14d >= 8 and change_12h <= -4:
         results["گروه اول"].append(symbol)
 
-    if change_7d is not None and change_3d is not None and change_7d >= 6 and change_3d <= -3:
+    if change_7d is not None and change_12h is not None and change_7d >= 6 and change_12h <= -3:
         results["گروه دوم"].append(symbol)
 
-    if change_1d is not None and change_12h is not None and change_1d >= 5 and change_12h <= -2:
+    if change_1d is not None and change_12h is not None and change_1d >= 5 and change_12h <= -3:
         results["گروه سوم"].append(symbol)
 
 # 🔹 آماده‌سازی خروجی نتایج
