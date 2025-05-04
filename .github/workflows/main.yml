@@ -1,4 +1,4 @@
-name: Run Crypto Analysis
+name: Run Cryptoo Analysis
 
 on:
   schedule:
